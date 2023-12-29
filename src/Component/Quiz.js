@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Box, Button, Stack, Typography, styled } from '@mui/material'
 import "./Main.css"
+import { useNavigate } from 'react-router-dom'
 
 const Options = styled('div')(({theme})=>({
     width:"60%",
@@ -45,6 +46,7 @@ export const Quiz =()=> {
     const [question, setQuestion] = useState(0)
     const [data, setData]= useState([])
     const [finish, setFinish]= useState(false)
+    const navigate = useNavigate()
 
     useEffect(()=>{
         setTimeout(()=>{
@@ -99,6 +101,11 @@ export const Quiz =()=> {
   
   }
 
+  const handleSumbitQuiz = () =>{
+    navigate("/rank")
+    
+  }
+
   
     
   return (
@@ -125,9 +132,10 @@ export const Quiz =()=> {
         </Options>
         </Box>
         <Box sx={{display: finish ? 'flex' : 'none', justifyContent:"center", alignItems:"center", flexDirection:"column", margin:"20px auto"}}>
+          <Typography padding="20px"> Please Submit Quiz</Typography>
         
 
-        <Button sx={{ padding:"10px 20px", mb:"20px", backgroundColor:"blue", color:"white", width:"300px", margin:"10px auto"}}>Submit</Button>
+        <Button sx={{ padding:"10px 20px", mb:"20px", backgroundColor:"blue", color:"white", width:"300px", margin:"10px auto"}} onClick={handleSumbitQuiz}>Submit</Button>
         </Box>
         
 

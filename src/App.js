@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './Component/Home';
 import { Dashboard } from './Component/Dashboard';
 import { Quiz } from './Component/Quiz';
+import { Rank } from './Component/Rank';
+import { Testing } from './Component/Testing';
 
 function App() {
 
@@ -16,9 +18,13 @@ function App() {
     <UserContextProvider>
       <BrowserRouter>
       <Routes>
+        
         <Route index element={<Home/>} />
         <Route path='dashboard' element={<Dashboard/>} />
         <Route path='quiz' element={<Quiz/>} />
+        <Route path='rank' element={<Rank/>} />
+        <Route path='testing' element={<Testing/>} />
+
       </Routes>
       </BrowserRouter>
     </UserContextProvider>
